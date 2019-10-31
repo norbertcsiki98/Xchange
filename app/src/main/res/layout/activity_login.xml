@@ -68,6 +68,7 @@
         android:layout_below="@+id/LoginButton"
         android:layout_marginTop="30dp"
         android:text="SIGN UP"
+        android:onClick="goToRegister"
         android:textSize="20sp" />
 
 
