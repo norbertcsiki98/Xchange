@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import android.content.Intent;
 public class RegisterActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getCanonicalName();
 
@@ -23,9 +23,12 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText confpassword;
     private Button registerBtn;
     private String birthDate;
+    private String firstnameS,lastnameS,emailS,passwordS,birthdateS;
+    private DatabaseHelper db;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         fname=findViewById(R.id.firstName);
@@ -34,6 +37,8 @@ public class RegisterActivity extends AppCompatActivity {
         password=findViewById(R.id.password);
         confpassword=findViewById(R.id.confirmPassword);
         birthDateView=findViewById(R.id.birthDate);
+        registerBtn=findViewById(R.id.registerButton);
+        db=new DatabaseHelper(this);
         datePickerButton=findViewById(R.id.date_picker);
         datePickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,5 +55,20 @@ public class RegisterActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            firstnameS=fname.getText().toString();
+            lastnameS=lname.getText().toString();
+            emailS=email.getText().toString();
+            passwordS=password.getText().toString();
+            birthdateS=birthDateView.getText().toString();
+            db.insertUser(firstnameS,lastnameS,emailS,passwordS,birthdateS);
+            Intent profintent=new Intent(RegisterActivity.this,ProfileActivity.class);
+            startActivity(profintent);
+        }
+    });
+
     }
+
 }
