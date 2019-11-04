@@ -59,7 +59,9 @@
         android:layout_below="@id/remember"
         android:layout_marginTop="30dp"
         android:text="LOG IN"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:onClick="goToHomePage"
+        />
 
     <Button
         android:id="@+id/SignUpButton"
@@ -68,6 +70,7 @@
         android:layout_below="@+id/LoginButton"
         android:layout_marginTop="30dp"
         android:text="SIGN UP"
+        android:onClick="goToRegister"
         android:textSize="20sp" />
 
 
