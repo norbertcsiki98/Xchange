@@ -7,10 +7,8 @@ import android.os.Handler;
 
 public class SplashScreenActivity extends Activity {
 
-    /** Duration of wait **/
-    private final int SPLASH_DISPLAY_LENGTH = 2000;
 
-    /** Called when the activity is first created. */
+    private final int SPLASH_DISPLAY_LENGTH = 2000;
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);

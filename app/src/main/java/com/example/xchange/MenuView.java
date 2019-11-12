@@ -1,6 +1,7 @@
 package com.example.xchange;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,35 +45,46 @@ public class MenuView extends LinearLayout {
         homePic.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Homepic is clicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(v.getContext(), "Homepic is clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent (v.getContext(),HomePageActivity.class);
+                v.getContext().startActivity (intent);
+
             }
         });
 
         historyPic.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "HistoryPic is clicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(v.getContext(), "HistoryPic is clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent (v.getContext(),HistoryActivity.class);
+                v.getContext().startActivity (intent);
             }
         });
 
         exchangePic.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Exchange is clicked", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(v.getContext(), "Exchange is clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent (v.getContext(),ExchangeActivity.class);
+                v.getContext().startActivity (intent);
             }
         });
 
         notificationsPic.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "NotificationsPic is clicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(v.getContext(), "NotificationsPic is clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent (v.getContext(),NotificationsActivity.class);
+                v.getContext().startActivity (intent);
             }
         });
 
         profilePic.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "ProfilePic is clicked", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(v.getContext(), "ProfilePic is clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent (v.getContext(),ProfileActivity.class);
+                v.getContext().startActivity (intent);
             }
         });
     }
