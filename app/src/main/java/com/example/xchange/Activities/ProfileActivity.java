@@ -1,8 +1,10 @@
-package com.example.xchange;
+package com.example.xchange.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.xchange.R;
 
 public class ProfileActivity extends AppCompatActivity {
 

@@ -1,14 +1,19 @@
-package com.example.xchange;
+package com.example.xchange.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class NotificationsActivity extends AppCompatActivity {
+import com.example.xchange.R;
+
+
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notifications);
+        setContentView(R.layout.activity_main);
     }
+
+
 }

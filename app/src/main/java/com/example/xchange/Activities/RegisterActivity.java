@@ -1,4 +1,4 @@
-package com.example.xchange;
+package com.example.xchange.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +13,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.content.Intent;
-import android.widget.Toast;
+
+import com.example.xchange.R;
 
 public class RegisterActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getCanonicalName();

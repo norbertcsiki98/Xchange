@@ -7,7 +7,7 @@
     android:layout_marginRight="40dp"
     android:layout_marginLeft="40dp"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".Activities.ProfileActivity">
 
     <TextView
             android:id="@+id/profile"

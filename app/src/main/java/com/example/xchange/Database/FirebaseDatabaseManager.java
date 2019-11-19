@@ -1,5 +1,6 @@
-package com.example.xchange;
+package com.example.xchange.Database;
 
+import com.example.xchange.Models.User;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

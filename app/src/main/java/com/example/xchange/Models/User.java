@@ -1,4 +1,4 @@
-package com.example.xchange;
+package com.example.xchange.Models;
 
 public class User {
     private String FIRST_NAME;
