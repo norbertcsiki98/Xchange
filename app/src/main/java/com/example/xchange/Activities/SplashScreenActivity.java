@@ -1,9 +1,11 @@
-package com.example.xchange;
+package com.example.xchange.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.xchange.R;
 
 public class SplashScreenActivity extends Activity {
 
@@ -19,7 +21,7 @@ public class SplashScreenActivity extends Activity {
             @Override
             public void run() {
 
-                Intent mainIntent = new Intent(SplashScreenActivity.this,LoginActivity.class);
+                Intent mainIntent = new Intent(SplashScreenActivity.this, LoginActivity.class);
                 SplashScreenActivity.this.startActivity(mainIntent);
                 SplashScreenActivity.this.finish();
             }

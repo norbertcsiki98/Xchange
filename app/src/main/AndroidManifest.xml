@@ -9,21 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NotificationsActivity"></activity>
-        <activity android:name=".HistoryActivity" />
-        <activity android:name=".ExchangeActivity" />
-        <activity android:name=".HomePageActivity" />
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".Activities.NotificationsActivity"></activity>
+        <activity android:name=".Activities.HistoryActivity" />
+        <activity android:name=".Activities.ExchangeActivity" />
+        <activity android:name=".Activities.HomePageActivity" />
+        <activity android:name=".Activities.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".Activities.ProfileActivity" />
+        <activity android:name=".Activities.RegisterActivity" />
+        <activity android:name=".Activities.LoginActivity" />
+        <activity android:name=".Activities.MainActivity" />
     </application>
 
 </manifest>

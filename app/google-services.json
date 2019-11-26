@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "371013506745",
+    "firebase_url": "https://xchange-d9038.firebaseio.com",
+    "project_id": "xchange-d9038",
+    "storage_bucket": "xchange-d9038.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371013506745:android:b6219333c1ccb31aa8ad68",
+        "android_client_info": {
+          "package_name": "com.example.xchange"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371013506745-jbqft83205ljgq3b39gj4bhh3hf1dhp2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAph7NOeBya_dhsBKtRCma58ac_WXU2O1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371013506745-jbqft83205ljgq3b39gj4bhh3hf1dhp2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,10 +1,12 @@
-package com.example.xchange;
+package com.example.xchange.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.xchange.R;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -15,13 +17,13 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void goToRegister(View view)
     {
-        Intent intent=new Intent(this,RegisterActivity.class);
+        Intent intent=new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
 
     public void goToHomePage(View view)
     {
-        Intent intent=new Intent(this,MainActivity.class);
+        Intent intent=new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 

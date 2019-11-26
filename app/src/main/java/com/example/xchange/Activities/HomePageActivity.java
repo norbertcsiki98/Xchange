@@ -1,4 +1,4 @@
-package com.example.xchange;
+package com.example.xchange.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.widget.EditText;
 
 import java.util.Currency;
 import java.util.Locale;
+
+import com.example.xchange.R;
 
 public class HomePageActivity extends AppCompatActivity {
 
