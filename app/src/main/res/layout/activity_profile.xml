@@ -3,30 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginTop="20dp"
-    android:layout_marginRight="40dp"
-    android:layout_marginLeft="40dp"
     android:layout_height="match_parent"
-    tools:context=".Activities.ProfileActivity"
-    android:gravity="bottom">
 
+    android:layout_marginTop="20dp"
 
+    tools:context=".Activities.ProfileActivity">
+
+    <com.example.xchange.Activities.Menu.MenuView
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
 
     <TextView
-            android:id="@+id/profile"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="26dp"
-            android:text="Profile" />
+        android:id="@+id/profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Profile"
+        android:textSize="26dp" />
 
     <TextView
         android:id="@+id/firstNameT"
-        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/profile"
         android:layout_height="wrap_content"
-        android:text="First Name:  " />
+        android:layout_marginTop="20dp"
+        android:text="First Name:  "
+        app:layout_constraintTop_toBottomOf="@id/profile" />
 
     <TextView
         android:id="@+id/firstName"
@@ -36,13 +39,14 @@
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@id/firstNameT"
         app:layout_constraintTop_toBottomOf="@id/profile" />
+
     <TextView
         android:id="@+id/lastNameT"
-        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/firstName"
         android:layout_height="wrap_content"
-        android:text="Last Name:  " />
+        android:layout_marginTop="40dp"
+        android:text="Last Name:  "
+        app:layout_constraintTop_toBottomOf="@id/firstName" />
 
     <TextView
         android:id="@+id/lastName"
@@ -52,13 +56,14 @@
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@id/lastNameT"
         app:layout_constraintTop_toBottomOf="@id/firstName" />
+
     <TextView
         android:id="@+id/emailT"
-        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/lastName"
         android:layout_height="wrap_content"
-        android:text="Email:  " />
+        android:layout_marginTop="40dp"
+        android:text="Email:  "
+        app:layout_constraintTop_toBottomOf="@id/lastName" />
 
     <TextView
         android:id="@+id/email"
@@ -68,13 +73,14 @@
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@id/emailT"
         app:layout_constraintTop_toBottomOf="@id/lastName" />
+
     <TextView
         android:id="@+id/birthDateT"
-        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/email"
         android:layout_height="wrap_content"
-        android:text="Birth date:  " />
+        android:layout_marginTop="40dp"
+        android:text="Birth date:  "
+        app:layout_constraintTop_toBottomOf="@id/email" />
 
     <TextView
         android:id="@+id/birthDate"
@@ -87,10 +93,10 @@
 
     <Button
         android:id="@+id/LogOutButton"
-        app:layout_constraintTop_toBottomOf="@id/birthDate"
         android:layout_width="match_parent"
-        android:layout_marginTop="40dp"
         android:layout_height="wrap_content"
-        android:text="Log out" />
+        android:layout_marginTop="40dp"
+        android:text="Log out"
+        app:layout_constraintTop_toBottomOf="@id/birthDate" />
 
 </RelativeLayout>

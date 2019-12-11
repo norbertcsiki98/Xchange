@@ -4,13 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="20dp"
+
     android:layout_marginTop="40dp"
-    android:layout_marginRight="20dp"
+
     tools:context=".Activities.ExchangeActivity"
   >
 
+    <com.example.xchange.Activities.Menu.MenuView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/menu"
+        android:layout_alignParentBottom="true"
 
+        />
 
 
     <TextView

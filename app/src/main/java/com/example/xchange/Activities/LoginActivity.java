@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void goToHomePage(View view)
     {
-        Intent intent=new Intent(this, MainActivity.class);
+        Intent intent=new Intent(this, HomePageActivity.class);
         startActivity(intent);
     }
 
