@@ -2,16 +2,16 @@ package com.example.xchange.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Currency;
-import java.util.Locale;
+
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,7 +26,7 @@ import org.json.JSONObject;
 public class HomePageActivity extends AppCompatActivity {
 
 
-    private TextView resultTextview, actualEuro;
+    private TextView  actualEuro;
     private RequestQueue mQueue;
     Button readButton;
 
@@ -37,15 +37,16 @@ public class HomePageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
 
-        resultTextview = findViewById(R.id.actualeuro);
+
         readButton = findViewById(R.id.readbutton);
         actualEuro = findViewById(R.id.actualeuro);
         mQueue = Volley.newRequestQueue(this);
         readButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "button clicked", Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(v.getContext(), "button clicked", Toast.LENGTH_SHORT).show();
                 readJson();
+
 
             }
         });
@@ -65,6 +66,11 @@ public class HomePageActivity extends AppCompatActivity {
                     JSONObject object = response.getJSONObject("rates");
                     String value = object.getString("RON");
                     actualEuro.setText(value);
+                    Intent i = new Intent(HomePageActivity.this, ExchangeActivity.class);
+                    i.putExtra("STRING_I_NEED", value);
+                    startActivity(i);
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -75,6 +81,7 @@ public class HomePageActivity extends AppCompatActivity {
                 error.printStackTrace();
             }
         });
+
 
         mQueue.add(request);
     }

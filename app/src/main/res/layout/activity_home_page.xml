@@ -37,7 +37,6 @@ android:id="@+id/ron"
 android:textSize="25sp"
 android:text="RON"
 android:layout_marginTop="70dp"
-
 android:layout_marginLeft="1dp"
 android:layout_toEndOf="@id/actualeuro"/>
 
