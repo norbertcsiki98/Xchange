@@ -1,29 +1,62 @@
 package com.example.xchange.Database;
 
-import com.example.xchange.Models.User;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
-
 public class FirebaseDatabaseManager {
-    public static ArrayList<User> users=new ArrayList<>();
+    private String FIRST_NAME;
+    private String LAST_NAME;
+    private String EMAIL;
+    private String PASSWORD;
+    private String BIRTH_DATE;
 
     public FirebaseDatabaseManager()
     {
 
     }
 
-    public static  class Instance {
-        static FirebaseDatabase database = FirebaseDatabase.getInstance();
-        static DatabaseReference usersReferences = database.getReference().child("Users");
+    public FirebaseDatabaseManager(String FIRST_NAME, String LAST_NAME, String EMAIL, String PASSWORD, String BIRTH_DATE) {
+        this.FIRST_NAME = FIRST_NAME;
+        this.LAST_NAME = LAST_NAME;
+        this.EMAIL = EMAIL;
+        this.PASSWORD = PASSWORD;
+        this.BIRTH_DATE = BIRTH_DATE;
+    }
 
+    public String getFIRST_NAME() {
+        return FIRST_NAME;
+    }
 
-        public static String CreateNewUser(String firstName, String lastName, String email, String password, String birthDate) {
-            User user = new User(firstName, lastName, email, password, birthDate);
-            String key = usersReferences.push().getKey();
-            usersReferences.child(key).setValue(user);
-            return key;
-        }
+    public void setFIRST_NAME(String FIRST_NAME) {
+        this.FIRST_NAME = FIRST_NAME;
+    }
+
+    public String getLAST_NAME() {
+        return LAST_NAME;
+    }
+
+    public void setLAST_NAME(String LAST_NAME) {
+        this.LAST_NAME = LAST_NAME;
+    }
+
+    public String getEMAIL() {
+        return EMAIL;
+    }
+
+    public void setEMAIL(String EMAIL) {
+        this.EMAIL = EMAIL;
+    }
+
+    public String getPASSWORD() {
+        return PASSWORD;
+    }
+
+    public void setPASSWORD(String PASSWORD) {
+        this.PASSWORD = PASSWORD;
+    }
+
+    public String getBIRTH_DATE() {
+        return BIRTH_DATE;
+    }
+
+    public void setBIRTH_DATE(String BIRTH_DATE) {
+        this.BIRTH_DATE = BIRTH_DATE;
     }
 }
