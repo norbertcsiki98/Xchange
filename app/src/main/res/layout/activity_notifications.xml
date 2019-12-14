@@ -6,6 +6,12 @@
     tools:context=".Activities.NotificationsActivity"
     android:gravity="bottom">
 
+    <com.github.mikephil.charting.charts.LineChart
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/linechart"
+        />
+
     <com.example.xchange.Activities.Menu.MenuView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
