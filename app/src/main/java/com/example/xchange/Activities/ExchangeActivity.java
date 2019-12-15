@@ -62,7 +62,8 @@ public class ExchangeActivity extends AppCompatActivity {
                 final Double sum = finalvalueD / finalactualvalueD;
                 resultEdittext.setText(String.valueOf(sum));
 
-                
+
+
             }
         });
 

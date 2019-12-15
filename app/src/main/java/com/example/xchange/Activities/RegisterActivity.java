@@ -154,8 +154,6 @@ public class RegisterActivity extends AppCompatActivity {
             datePickerButton.setError("Birth date is required!");
             dataValidation=false;
         }
-
-
         return dataValidation;
     }
 }
