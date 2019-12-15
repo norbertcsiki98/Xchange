@@ -44,7 +44,7 @@ public class MenuView extends LinearLayout {
 
         ImageView homePic = (ImageView) findViewById(R.id.homepic);
         ImageView historyPic = (ImageView) findViewById(R.id.historypic);
-        ImageView exchangePic = (ImageView) findViewById(R.id.exchangepic);
+        //ImageView exchangePic = (ImageView) findViewById(R.id.exchangepic);
         ImageView notificationsPic = (ImageView) findViewById(R.id.notificationspic);
         ImageView profilePic = (ImageView) findViewById(R.id.profilepic);
 
@@ -67,14 +67,14 @@ public class MenuView extends LinearLayout {
             }
         });
 
-        exchangePic.setOnClickListener(new OnClickListener() {
+        /*exchangePic.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                // Toast.makeText(v.getContext(), "Exchange is clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent (v.getContext(), ExchangeActivity.class);
                 v.getContext().startActivity (intent);
             }
-        });
+        });*/
 
         notificationsPic.setOnClickListener(new OnClickListener() {
             @Override

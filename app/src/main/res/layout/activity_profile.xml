@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:layout_marginTop="20dp"
+    android:background="@color/backgroundColor"
 
     tools:context=".Activities.ProfileActivity">
 
@@ -17,10 +16,11 @@
 
     <TextView
         android:id="@+id/profile"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="Profile"
+        android:layout_centerHorizontal="true"
         android:textSize="26dp" />
 
     <TextView
@@ -28,75 +28,90 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@id/profile"
         android:text="First Name:  "
-        app:layout_constraintTop_toBottomOf="@id/profile" />
+        />
 
     <TextView
         android:id="@+id/firstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_below="@id/profile"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@id/firstNameT"
-        app:layout_constraintTop_toBottomOf="@id/profile" />
+        android:layout_marginLeft="30dp"
+        android:layout_toEndOf="@id/firstNameT"
+        />
 
     <TextView
         android:id="@+id/lastNameT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp"
         android:text="Last Name:  "
-        app:layout_constraintTop_toBottomOf="@id/firstName" />
+        android:layout_below="@id/firstName"
+        />
 
     <TextView
         android:id="@+id/lastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@id/lastNameT"
-        app:layout_constraintTop_toBottomOf="@id/firstName" />
+        android:layout_below="@id/firstName"
+        android:layout_toEndOf="@id/lastNameT" />
 
     <TextView
         android:id="@+id/emailT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp"
         android:text="Email:  "
-        app:layout_constraintTop_toBottomOf="@id/lastName" />
+        android:layout_below="@id/lastNameT"
+        />
 
     <TextView
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@id/emailT"
-        app:layout_constraintTop_toBottomOf="@id/lastName" />
+        android:layout_below="@id/lastNameT"
+        android:layout_toEndOf="@id/emailT"/>
 
     <TextView
         android:id="@+id/birthDateT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@id/email"
         android:layout_marginTop="40dp"
         android:text="Birth date:  "
-        app:layout_constraintTop_toBottomOf="@id/email" />
+        />
 
     <TextView
         android:id="@+id/birthDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/email"
         android:layout_marginTop="40dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@id/birthDateT"
-        app:layout_constraintTop_toBottomOf="@id/email" />
+        android:layout_toEndOf="@id/birthDateT"/>
 
     <Button
         android:id="@+id/LogOutButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/birthDate"
         android:text="Log out"
+        android:background="@color/backGroundButtonsColor"
         app:layout_constraintTop_toBottomOf="@id/birthDate" />
 
 </RelativeLayout>

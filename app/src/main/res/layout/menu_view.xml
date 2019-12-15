@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:src="@drawable/home_pic"
         android:id="@+id/homepic"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginRight="5dp"
         />
 
@@ -20,16 +20,16 @@
         android:layout_height="match_parent"
         android:src="@drawable/history_pic"
         android:id="@+id/historypic"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginRight="5dp"/>
 
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="match_parent"
-        android:src="@drawable/exchange_pic"
-        android:id="@+id/exchangepic"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"/>
+    <!-- <ImageView
+         android:layout_width="60dp"
+         android:layout_height="match_parent"
+         android:src="@drawable/exchange_pic"
+         android:id="@+id/exchangepic"
+         android:layout_marginLeft="5dp"
+         android:layout_marginRight="5dp"/>-->
 
 
     <ImageView
@@ -37,7 +37,7 @@
         android:layout_height="match_parent"
         android:src="@drawable/notifications_pic"
         android:id="@+id/notificationspic"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginRight="5dp"/>
 
     <ImageView
@@ -45,7 +45,8 @@
         android:layout_height="match_parent"
         android:src="@drawable/profile_pic"
         android:id="@+id/profilepic"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="25dp"
+
         />
 
 </LinearLayout>

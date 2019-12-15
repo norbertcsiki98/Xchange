@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="30dp"
-    android:layout_marginLeft="30dp"
-    android:layout_marginRight="30dp"
+
+    android:background="@color/backgroundColor"
     tools:context=".Activities.RegisterActivity">
 
 
@@ -13,15 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+
         >
 
         <TextView
             android:id="@+id/RegisterText"
-            android:textSize="26dp"
+            android:textSize="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Register" />
+            android:fontFamily="serif"
+            android:text="REGISTER" />
 
         <EditText
             android:id="@+id/firstName"
@@ -29,12 +32,16 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:hint="First Name" />
 
         <EditText
             android:id="@+id/lastName"
             android:layout_width="match_parent"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:hint="Last Name" />
@@ -43,6 +50,8 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:hint="Email" />
@@ -50,6 +59,8 @@
         <EditText
             android:id="@+id/password"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -58,6 +69,8 @@
         <EditText
             android:id="@+id/confirmPassword"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -67,9 +80,12 @@
         <Button
             android:id="@+id/date_picker"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pick your birth date"
+            android:background="@color/backGroundButtonsColor"
             android:textSize="16sp" />
 
         <TextView
@@ -77,6 +93,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:text=""
             android:textSize="12sp" />
 
@@ -84,8 +102,11 @@
             android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/backGroundButtonsColor"
             android:layout_below="@+id/remember"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:text="Register" />
 
     </LinearLayout>

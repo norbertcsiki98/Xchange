@@ -4,16 +4,26 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.xchange.Database.DatabaseHelper;
 import com.example.xchange.R;
 
-public class LoginActivity extends AppCompatActivity {
 
+public class LoginActivity extends AppCompatActivity {
+    private EditText emailET,passwordET;
+    DatabaseHelper db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        emailET=findViewById(R.id.email);
+        passwordET=findViewById(R.id.password);
+
+
     }
     public void goToRegister(View view)
     {
@@ -23,10 +33,41 @@ public class LoginActivity extends AppCompatActivity {
 
     public void goToHomePage(View view)
     {
-        Intent intent=new Intent(this, HomePageActivity.class);
-        startActivity(intent);
+        db=new DatabaseHelper(this);
+        String email = emailET.getText().toString();
+        String password = passwordET.getText().toString();
+        Boolean CheckEmailPassword = db.checkLogin(email, password);
+        if (checkDataEntered() == true) {
+            if (CheckEmailPassword == true) {
+                Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+                intent.putExtra("email",email);
+                startActivity(intent);
+                //Toast.makeText(getContext(),"Successfully login",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(LoginActivity.this, "Wrong email or password", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
     }
 
+    boolean isEmpty(EditText text) {
+        CharSequence str = text.getText().toString();
+        return TextUtils.isEmpty(str);
+    }
 
+    public boolean checkDataEntered()
+    {
+        boolean dataValidation=true;
+        if (isEmpty(emailET)) {
+            emailET.setError("Email is required!");
+            dataValidation=false;
+        }
 
+        if (isEmpty(passwordET)) {
+            passwordET.setError("Password is required!");
+            dataValidation=false;
+        }
+        return dataValidation;
+    }
 }

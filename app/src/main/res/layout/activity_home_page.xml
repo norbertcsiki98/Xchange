@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+
     tools:context=".Activities.HomePageActivity">
 
     <com.example.xchange.Activities.Menu.MenuView
@@ -14,50 +16,66 @@
         />
 
 
-<TextView
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:id="@+id/egyeur"
-android:layout_marginTop="70dp"
-android:layout_marginRight="30dp"
-android:layout_marginLeft="30dp"
-android:text="1 EUR"
-android:textSize="25sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/egyeur"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:text="1 EUR"
+        android:textSize="25sp"/>
 
 
-<TextView
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:id="@+id/actualeuro"
-android:layout_marginTop="70dp"
-android:layout_marginRight="30dp"
-android:layout_marginLeft="70dp"
-android:textSize="25sp"
-android:layout_toEndOf="@+id/egyeur"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/actualeuro"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="70dp"
+        android:textSize="25sp"
+        android:layout_toEndOf="@+id/egyeur"
 
-    />
+        />
 
-<TextView
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:id="@+id/ron"
-android:textSize="25sp"
-android:text="RON"
-android:layout_marginTop="70dp"
-android:layout_marginLeft="1dp"
-android:layout_toEndOf="@id/actualeuro"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ron"
+        android:textSize="25sp"
+        android:text="RON"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="1dp"
+        android:layout_toEndOf="@id/actualeuro"/>
 
 
-<Button
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="Generate the currency euro value"
-android:id="@+id/readbutton"
-android:textSize="20sp"
-android:layout_below="@+id/actualeuro"
-android:layout_marginTop="40dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generate the currency euro value"
+        android:id="@+id/readbutton"
+        android:textSize="20sp"
+        android:background="@color/backGroundButtonsColor"
+        android:layout_below="@+id/actualeuro"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
-    </RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exhange now"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/gotoexhange"
+        android:textSize="20sp"
+        android:background="@color/backGroundButtonsColor"
+        android:layout_below="@+id/readbutton"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+</RelativeLayout>
 
 
 
