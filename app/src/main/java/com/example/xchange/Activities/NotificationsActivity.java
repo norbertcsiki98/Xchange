@@ -17,7 +17,9 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.OnChartGestureListener;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -26,50 +28,66 @@ public class NotificationsActivity extends AppCompatActivity {
 
     private static final String TAG = "NotificationActivity";
     private LineChart mchart;
-
+    private ArrayList<String> euro_values;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
 
-        mchart = (LineChart) findViewById(R.id.linechart);
-//        mchart.setOnChartGestureListener(NotificationsActivity.this);
-//        mchart.setOnChartValueSelectedListener(NotificationsActivity.this);
 
-        mchart.setDragEnabled(true);
-        mchart.setScaleEnabled(false);
+        Bundle extras = getIntent().getExtras();
+        if (extras == null) {
+            ArrayList<String> euro_values = null;
+        } else {
+            ArrayList<String> euro_values = extras.getStringArrayList("Value_Set");
 
-        ArrayList<Entry> yValues = new ArrayList<>();
+            int year = Integer.valueOf(euro_values.get(euro_values.size() - 1));
 
-        double Value = 3.89f;
-        int Year = 2010;
+            mchart = (LineChart) findViewById(R.id.linechart);
 
-        for (; Year <= Calendar.getInstance().get(Calendar.YEAR) + 1; Value += 0.1, Year++) {
-            yValues.add(new Entry(Year, (float) Value));
+            mchart.setDragEnabled(true);
+            mchart.setScaleEnabled(false);
+
+            ArrayList<Entry> yValues = new ArrayList<>();
+
+            //int counter = 0;
+            for (int i = 0; i < euro_values.size() - 1; i++) {
+                float conv_val = Float.valueOf(euro_values.get(i));
+                yValues.add(new Entry(i, conv_val));
+//                    counter++;
+//                    if (counter == 12)
+//                    {
+//                        counter = 0;
+//                        year++;
+//                    }
+            }
+
+
+            LineDataSet line_data = new LineDataSet(yValues, "Euro Values");
+            line_data.setFillAlpha(110);
+            line_data.setColor(Color.RED);
+            line_data.setLineWidth(3f);
+            line_data.setValueTextSize(16f);
+            line_data.setValueTextColor(Color.MAGENTA);
+
+            ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+            dataSets.add(line_data);
+
+            LineData data = new LineData(dataSets);
+
+            float zoom_x_val = euro_values.size() / 10 * 2;
+            mchart.setScaleMinima(zoom_x_val, 1f);
+
+            mchart.setData(data);
+
+            //sendEmail(euro_values.get(euro_values.size() - 2));
         }
-
-        LineDataSet line_data = new LineDataSet(yValues, "Euro Values");
-        line_data.setFillAlpha(110);
-        line_data.setColor(Color.RED);
-        line_data.setLineWidth(3f);
-        line_data.setValueTextSize(16f);
-        line_data.setValueTextColor(Color.MAGENTA);
-
-        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
-        dataSets.add(line_data);
-
-        LineData data = new LineData(dataSets);
-
-        mchart.setData(data);
-
-
-        // sendEmail(Value);
     }
 
 
-    protected void sendEmail(Double value) {
-        Log.i("Send email", "");
+    protected void sendEmail(String value) {
+        Log.i("Send email", "NEW VALUE : " + value);
         String[] TO = {""};
         String[] CC = {""};
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
