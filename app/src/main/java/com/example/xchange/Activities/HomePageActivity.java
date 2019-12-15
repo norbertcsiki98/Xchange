@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.xchange.Activities.Menu.MenuView;
 import com.example.xchange.R;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -73,6 +74,8 @@ public class HomePageActivity extends AppCompatActivity {
                     JSONObject object = response.getJSONObject("rates");
                     String value = object.getString("RON");
                     actualEuro.setText(value);
+                    Intent intent = new Intent(HomePageActivity.this, MenuView.class);
+                    intent.putExtra("email",email);
                     Intent i = new Intent(HomePageActivity.this, ExchangeActivity.class);
                     i.putExtra("email",email);
                     i.putExtra("STRING_I_NEED", value);

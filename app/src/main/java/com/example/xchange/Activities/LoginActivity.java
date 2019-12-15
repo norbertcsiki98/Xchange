@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.xchange.Activities.Menu.MenuView;
 import com.example.xchange.Database.DatabaseHelper;
 import com.example.xchange.R;
 
@@ -39,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         Boolean CheckEmailPassword = db.checkLogin(email, password);
         if (checkDataEntered() == true) {
             if (CheckEmailPassword == true) {
-                Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+                Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
                 intent.putExtra("email",email);
                 startActivity(intent);
                 //Toast.makeText(getContext(),"Successfully login",Toast.LENGTH_SHORT).show();

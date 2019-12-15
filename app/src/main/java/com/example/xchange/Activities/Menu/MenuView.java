@@ -47,7 +47,6 @@ public class MenuView extends LinearLayout {
         //ImageView exchangePic = (ImageView) findViewById(R.id.exchangepic);
         ImageView notificationsPic = (ImageView) findViewById(R.id.notificationspic);
         ImageView profilePic = (ImageView) findViewById(R.id.profilepic);
-
         homePic.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
