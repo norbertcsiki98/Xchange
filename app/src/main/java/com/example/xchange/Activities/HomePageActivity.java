@@ -28,7 +28,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     private TextView  actualEuro;
     private RequestQueue mQueue;
-    Button readButton;
+    Button readButton,exchangeNowBtn;
 
 
     @Override
@@ -39,15 +39,23 @@ public class HomePageActivity extends AppCompatActivity {
 
 
         readButton = findViewById(R.id.readbutton);
+        exchangeNowBtn=findViewById(R.id.gotoexhange);
         actualEuro = findViewById(R.id.actualeuro);
         mQueue = Volley.newRequestQueue(this);
         readButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              //  Toast.makeText(v.getContext(), "button clicked", Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(v.getContext(), "button clicked", Toast.LENGTH_SHORT).show();
+                readJson1();
+
+
+            }
+        });
+
+        exchangeNowBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 readJson();
-
-
             }
         });
 
@@ -61,14 +69,44 @@ public class HomePageActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
 
                 try {
+                    String email = getIntent().getStringExtra("email");
+                    JSONObject object = response.getJSONObject("rates");
+                    String value = object.getString("RON");
+                    actualEuro.setText(value);
+                    Intent i = new Intent(HomePageActivity.this, ExchangeActivity.class);
+                    i.putExtra("email",email);
+                    i.putExtra("STRING_I_NEED", value);
+                    startActivity(i);
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+
+        mQueue.add(request);
+    }
+
+    private void readJson1() {
+        final String url = "https://api.exchangeratesapi.io/latest";
+        final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
 
                     Log.d("aaa",response.toString());
                     JSONObject object = response.getJSONObject("rates");
                     String value = object.getString("RON");
                     actualEuro.setText(value);
-                    Intent i = new Intent(HomePageActivity.this, ExchangeActivity.class);
-                    i.putExtra("STRING_I_NEED", value);
-                    startActivity(i);
 
 
                 } catch (JSONException e) {

@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
 
-    android:layout_marginTop="40dp"
 
     tools:context=".Activities.ExchangeActivity"
-  >
+    >
 
     <com.example.xchange.Activities.Menu.MenuView
         android:layout_width="wrap_content"
@@ -24,8 +24,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
         android:text="Please write the value"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="italic" />
 
 
@@ -40,6 +41,7 @@
 
     <Button
         android:id="@+id/eurotoron"
+        android:background="@color/backGroundButtonsColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/value"
@@ -51,6 +53,7 @@
 
     <Button
         android:id="@+id/rontoeuro"
+        android:background="@color/backGroundButtonsColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/eurotoron"
@@ -65,20 +68,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/rontoeuro"
+        android:layout_centerHorizontal="true"
         android:text="Result: "
         android:textSize="20sp"
         android:layout_marginTop="50dp"
         />
 
-     <EditText
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:id="@+id/resultedittext"
-         android:textSize="20sp"
-         android:layout_toEndOf="@+id/resulttext"
-         android:layout_below="@id/rontoeuro"
-         android:layout_marginLeft="20dp"
-         android:layout_marginTop="50dp"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/resultedittext"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:layout_toEndOf="@+id/resulttext"
+        android:layout_below="@id/rontoeuro"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"/>
 
 
 </RelativeLayout>

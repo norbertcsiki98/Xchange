@@ -15,27 +15,26 @@ import android.widget.TextView;
 import android.content.Intent;
 import android.widget.Toast;
 
-import com.example.xchange.Database.FirebaseDatabaseManager;
+import com.example.xchange.Database.DatabaseHelper;
+
 import com.example.xchange.R;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
 
 public class RegisterActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getCanonicalName();
 
-    FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
-    DatabaseReference databaseReference=firebaseDatabase.getReference("Users");
 
     private Button datePickerButton;
     private TextView birthDateView,birthDateViewL;
-    private EditText fname;
-    private EditText lname;
-    private EditText email;
-    private EditText password;
-    private EditText confpassword;
+    private EditText fnameET;
+    private EditText lnameET;
+    private EditText emailET;
+    private EditText passwordET;
+    private EditText confpasswordET;
     private Button registerBtn;
     private String birthDate;
-
+    DatabaseHelper db;
+    String fnameS,lnameS,emailS,passwordS,confirmPasswordS,birthDateS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,11 +42,13 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        fname=findViewById(R.id.firstName);
-        lname=findViewById(R.id.lastName);
-        email=findViewById(R.id.email);
-        password=findViewById(R.id.password);
-        confpassword=findViewById(R.id.confirmPassword);
+        db=new DatabaseHelper(this);
+
+        fnameET=findViewById(R.id.firstName);
+        lnameET=findViewById(R.id.lastName);
+        emailET=findViewById(R.id.email);
+        passwordET=findViewById(R.id.password);
+        confpasswordET=findViewById(R.id.confirmPassword);
         birthDateView=findViewById(R.id.birthDate);
         registerBtn=findViewById(R.id.registerButton);
 
@@ -69,36 +70,43 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if(checkDataEntered()==true) {
-                addUser();
-                Intent profintent = new Intent(RegisterActivity.this, ProfileActivity.class);
-                startActivity(profintent);
+            @Override
+            public void onClick(View v) {
+                fnameS=fnameET.getText().toString();
+                lnameS=lnameET.getText().toString();
+                emailS=emailET.getText().toString();
+                passwordS=passwordET.getText().toString();
+                confirmPasswordS=confpasswordET.getText().toString();
+                birthDateS=birthDateView.getText().toString();
+                if(checkDataEntered()==true) {
+                    if (passwordS.equals(confirmPasswordS))
+                    {
+                        if(db.checkEmail(emailS)==true) {
+                            boolean insert=db.insertUser(fnameS, lnameS, emailS, passwordS,birthDateS);
+                            if(insert==true) {
+                                Toast.makeText(RegisterActivity.this, "Registered Successfully", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(RegisterActivity.this, HomePageActivity.class);
+                                intent.putExtra("email",emailS);
+                                startActivity(intent);
+
+                            }
+                        }
+                        else
+                        {
+                            Toast.makeText(RegisterActivity.this, "Enter other email", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    else{
+                        Toast.makeText(RegisterActivity.this, "The passwords don't match", Toast.LENGTH_LONG).show();
+                    }
+
+                }
             }
-        }
-    });
+        });
 
     }
 
-    // insert user data to database
-    public void addUser()
-    {
-        fname=findViewById(R.id.firstName);
-        String fnameS=fname.getText().toString();
-        lname=findViewById(R.id.lastName);
-        String lnameS=lname.getText().toString();
-        email=findViewById(R.id.email);
-        String emailS=email.getText().toString();
-        password=findViewById(R.id.password);
-        String passwordS=password.getText().toString();
-        birthDateViewL=findViewById(R.id.birthDate);
-        String birthS=birthDateViewL.getText().toString();
-        FirebaseDatabaseManager fm=new FirebaseDatabaseManager(fnameS,lnameS,emailS,passwordS,birthS);
-        databaseReference.push().setValue(fm);
-        Toast.makeText(this,"Insert to database",Toast.LENGTH_SHORT).show();
 
-    }
 
     //check data entered
     boolean isEmpty(EditText text) {
@@ -119,27 +127,27 @@ public class RegisterActivity extends AppCompatActivity {
 
     boolean checkDataEntered() {
         boolean dataValidation=true;
-        if (isEmpty(fname)) {
-            fname.setError("First name is required!");
+        if (isEmpty(fnameET)) {
+            fnameET.setError("First name is required!");
             dataValidation=false;
         }
 
-        if (isEmpty(lname)) {
-            lname.setError("Last name is required!");
+        if (isEmpty(lnameET)) {
+            lnameET.setError("Last name is required!");
             dataValidation=false;
         }
 
-        if (isEmail(email) == false) {
-            email.setError("Enter valid email!");
+        if (isEmail(emailET) == false) {
+            emailET.setError("Enter valid email!");
             dataValidation=false;
         }
 
-        if (isEmpty(password)) {
-            password.setError("Password is required!");
+        if (isEmpty(passwordET)) {
+            passwordET.setError("Password is required!");
             dataValidation=false;
         }
-        if (isEmpty(confpassword)) {
-            confpassword.setError("Confirm password is required!");
+        if (isEmpty(confpasswordET)) {
+            confpasswordET.setError("Confirm password is required!");
             dataValidation=false;
         }
         if (isEmptyT(birthDateView)) {
