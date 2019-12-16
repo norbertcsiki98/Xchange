@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -78,9 +79,9 @@ public class MenuView extends LinearLayout {
         notificationsPic.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(v.getContext(), "NotificationsPic is clicked", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent (v.getContext(), NotificationsActivity.class);
-                v.getContext().startActivity (intent);
+                Toast.makeText(v.getContext(), "You must pick a date for diagram from History Tab!", Toast.LENGTH_SHORT).show();
+                //Intent intent = new Intent (v.getContext(), NotificationsActivity.class);
+                //v.getContext().startActivity (intent);
             }
         });
 

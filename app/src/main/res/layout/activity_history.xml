@@ -47,8 +47,8 @@
 
     <DatePicker
         android:id="@+id/simpleDatePicker"
-        android:layout_width="344dp"
-        android:layout_height="202dp"
+        android:layout_width="366dp"
+        android:layout_height="237dp"
         android:datePickerMode="spinner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

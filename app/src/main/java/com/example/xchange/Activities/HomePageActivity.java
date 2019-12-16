@@ -3,6 +3,7 @@ package com.example.xchange.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -74,6 +75,10 @@ public class HomePageActivity extends AppCompatActivity {
                     JSONObject object = response.getJSONObject("rates");
                     String value = object.getString("RON");
                     actualEuro.setText(value);
+                    SharedPreferences preferences=getSharedPreferences("CONTAINER",MODE_PRIVATE);
+                    SharedPreferences.Editor editor=preferences.edit();
+                    editor.putString("ACT_VAL",value);
+                    editor.commit();
                     Intent intent = new Intent(HomePageActivity.this, MenuView.class);
                     intent.putExtra("email",email);
                     Intent i = new Intent(HomePageActivity.this, ExchangeActivity.class);

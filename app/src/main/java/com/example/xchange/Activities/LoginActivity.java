@@ -3,6 +3,7 @@ package com.example.xchange.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -40,7 +41,13 @@ public class LoginActivity extends AppCompatActivity {
         Boolean CheckEmailPassword = db.checkLogin(email, password);
         if (checkDataEntered() == true) {
             if (CheckEmailPassword == true) {
-                Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+
+                SharedPreferences preferences=getSharedPreferences("CONTAINER",MODE_PRIVATE);
+                SharedPreferences.Editor editor=preferences.edit();
+                editor.putString("EMAIL",email);
+                editor.commit();
+
+                Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
                 intent.putExtra("email",email);
                 startActivity(intent);
                 //Toast.makeText(getContext(),"Successfully login",Toast.LENGTH_SHORT).show();

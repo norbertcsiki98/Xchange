@@ -85,8 +85,8 @@ public class RegisterActivity extends AppCompatActivity {
                             boolean insert=db.insertUser(fnameS, lnameS, emailS, passwordS,birthDateS);
                             if(insert==true) {
                                 Toast.makeText(RegisterActivity.this, "Registered Successfully", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(RegisterActivity.this, HomePageActivity.class);
-                                intent.putExtra("email",emailS);
+                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                //intent.putExtra("email",emailS);
                                 startActivity(intent);
 
                             }

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.renderscript.Sampler;
@@ -51,7 +53,6 @@ public class HistoryActivity extends AppCompatActivity {
     private RequestQueue mQueue;
     String value;
     private ArrayList<String> get_responses = new ArrayList<>();
-    private int chosed_year;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +81,10 @@ public class HistoryActivity extends AppCompatActivity {
 
                 if (i == 2) {
 
-                    Vals.add(Integer.toString(chosed_year));
+                    SharedPreferences preferences = getSharedPreferences("CONTAINER", MODE_PRIVATE);
+                    String act_val_euro = preferences.getString("ACT_VAL", "val");
+                    String email = preferences.getString("EMAIL","email");
+                    //sendEmail(act_val_euro,email);
                     Intent Chart_Intent = new Intent(HistoryActivity.this, NotificationsActivity.class);
                     Chart_Intent.putExtra("Value_Set", Vals);
                     startActivity(Chart_Intent);
@@ -138,7 +142,7 @@ public class HistoryActivity extends AppCompatActivity {
 
     public void extract_euro_values() {
 
-        chosed_year = simpleDatePicker.getYear() + 1;
+        int chosed_year = simpleDatePicker.getYear() + 1;
         int actual_year = Calendar.getInstance().get(Calendar.YEAR) + 1;
         int actual_month = Calendar.getInstance().get(Calendar.MONTH) + 1;
 
@@ -154,6 +158,29 @@ public class HistoryActivity extends AppCompatActivity {
             }
         }
     }
+
+    protected void sendEmail(String value , String email) {
+        Log.i("Send email", "NEW VALUE : " + value);
+        String[] TO = {""};
+        String[] CC = {""};
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_CC, CC);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "NEW VALUE DETECTED");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "The new value of euro is " + value);
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            finish();
+            Log.i("Finished sending email", "");
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(HistoryActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }
 
 

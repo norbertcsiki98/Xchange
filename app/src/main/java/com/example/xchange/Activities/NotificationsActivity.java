@@ -42,8 +42,6 @@ public class NotificationsActivity extends AppCompatActivity {
         } else {
             ArrayList<String> euro_values = extras.getStringArrayList("Value_Set");
 
-            int year = Integer.valueOf(euro_values.get(euro_values.size() - 1));
-
             mchart = (LineChart) findViewById(R.id.linechart);
 
             mchart.setDragEnabled(true);
@@ -51,16 +49,9 @@ public class NotificationsActivity extends AppCompatActivity {
 
             ArrayList<Entry> yValues = new ArrayList<>();
 
-            //int counter = 0;
-            for (int i = 0; i < euro_values.size() - 1; i++) {
+            for (int i = 0; i < euro_values.size(); i++) {
                 float conv_val = Float.valueOf(euro_values.get(i));
                 yValues.add(new Entry(i, conv_val));
-//                    counter++;
-//                    if (counter == 12)
-//                    {
-//                        counter = 0;
-//                        year++;
-//                    }
             }
 
 
@@ -81,31 +72,6 @@ public class NotificationsActivity extends AppCompatActivity {
 
             mchart.setData(data);
 
-            //sendEmail(euro_values.get(euro_values.size() - 2));
         }
     }
-
-
-    protected void sendEmail(String value) {
-        Log.i("Send email", "NEW VALUE : " + value);
-        String[] TO = {""};
-        String[] CC = {""};
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-
-        emailIntent.setData(Uri.parse("mailto:"));
-        emailIntent.setType("text/plain");
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
-        emailIntent.putExtra(Intent.EXTRA_CC, CC);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "NEW VALUE DETECTED");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "The new value of euro is " + value);
-
-        try {
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-            finish();
-            Log.i("Finished sending email", "");
-        } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(NotificationsActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
-        }
-    }
-
 }
