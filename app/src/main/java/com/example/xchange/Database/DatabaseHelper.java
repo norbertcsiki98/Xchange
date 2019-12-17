@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -67,6 +66,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor.getCount() > 0) return false;
         else return true;
     }
+
+
+    //Get user datas by email
 
     public ArrayList<String> getDatas(String email) {
         ArrayList<String> datas = new ArrayList<>();

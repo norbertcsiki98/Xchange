@@ -17,6 +17,8 @@ public class SplashScreenActivity extends Activity {
         setContentView(R.layout.activity_splash_screen);
 
 
+        //When the application starts Splashscreen is loaded
+
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {

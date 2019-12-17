@@ -1,27 +1,19 @@
 package com.example.xchange.Activities;
 
+import android.graphics.Color;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
-
 import com.example.xchange.R;
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-import com.github.mikephil.charting.listener.OnChartGestureListener;
-import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
-import com.github.mikephil.charting.utils.ViewPortHandler;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class NotificationsActivity extends AppCompatActivity {
 
@@ -35,6 +27,7 @@ public class NotificationsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
 
+        // Grab the dataset sended from History activity
 
         Bundle extras = getIntent().getExtras();
         if (extras == null) {
@@ -47,6 +40,9 @@ public class NotificationsActivity extends AppCompatActivity {
             mchart.setDragEnabled(true);
             mchart.setScaleEnabled(false);
 
+
+            //Values for LineChart diagram
+
             ArrayList<Entry> yValues = new ArrayList<>();
 
             for (int i = 0; i < euro_values.size(); i++) {
@@ -54,6 +50,7 @@ public class NotificationsActivity extends AppCompatActivity {
                 yValues.add(new Entry(i, conv_val));
             }
 
+            //Settings for plotting
 
             LineDataSet line_data = new LineDataSet(yValues, "Euro Values");
             line_data.setFillAlpha(110);
@@ -69,6 +66,9 @@ public class NotificationsActivity extends AppCompatActivity {
 
             float zoom_x_val = euro_values.size() / 10 * 2;
             mchart.setScaleMinima(zoom_x_val, 1f);
+            //mchart.animateXY(4000,3000, Easing.EasingOption.EaseInOutBounce,Easing.EasingOption.EaseInExpo);
+
+            //Show the actual diagram.
 
             mchart.setData(data);
 

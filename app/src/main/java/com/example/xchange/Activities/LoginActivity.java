@@ -1,7 +1,5 @@
 package com.example.xchange.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,7 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.xchange.Activities.Menu.MenuView;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.xchange.Database.DatabaseHelper;
 import com.example.xchange.R;
 
@@ -27,11 +26,16 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
+    // User can create a new acount
+
     public void goToRegister(View view)
     {
         Intent intent=new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
+
+    // If data introduced is correct and it's available , user can view the application
 
     public void goToHomePage(View view)
     {
@@ -59,10 +63,14 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    // Check for existence
+
     boolean isEmpty(EditText text) {
         CharSequence str = text.getText().toString();
         return TextUtils.isEmpty(str);
     }
+
+    // Validating data
 
     public boolean checkDataEntered()
     {

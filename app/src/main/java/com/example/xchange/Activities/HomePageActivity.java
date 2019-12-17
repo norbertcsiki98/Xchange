@@ -54,6 +54,7 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
 
+
         exchangeNowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +63,8 @@ public class HomePageActivity extends AppCompatActivity {
         });
 
     }
+
+    //Jump to exchange activity by pressing the exchange now button
 
     private void readJson() {
         final String url = "https://api.exchangeratesapi.io/latest";
@@ -102,6 +105,8 @@ public class HomePageActivity extends AppCompatActivity {
         mQueue.add(request);
     }
 
+    //Extract the actual euro value from API
+
     private void readJson1() {
         final String url = "https://api.exchangeratesapi.io/latest";
         final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -111,7 +116,6 @@ public class HomePageActivity extends AppCompatActivity {
 
                 try {
 
-                    Log.d("aaa",response.toString());
                     JSONObject object = response.getJSONObject("rates");
                     String value = object.getString("RON");
                     actualEuro.setText(value);

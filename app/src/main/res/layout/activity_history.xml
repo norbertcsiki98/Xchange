@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="bottom"
+    android:background="@color/backgroundColor"
     tools:context=".Activities.HistoryActivity">
 
 
@@ -17,6 +18,8 @@
         android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generate" />
 
@@ -40,6 +43,7 @@
         android:layout_marginTop="76dp"
         android:text="Show History (Press twice)"
         android:textAlignment="center"
+        android:background="@color/backGroundButtonsColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,24 +1,18 @@
 package com.example.xchange.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.xchange.Database.DatabaseHelper;
 import com.example.xchange.R;
 
-import android.widget.Button;
-import android.content.Intent;
-
 import java.util.ArrayList;
-
-import static com.example.xchange.Database.DatabaseHelper.COLUMN_EMAIL;
-import static com.example.xchange.Database.DatabaseHelper.TABLE_NAME;
 
 public class ProfileActivity extends AppCompatActivity {
     TextView fnameTV, lnameTV, emailTV, birthDateTV;
@@ -37,6 +31,8 @@ public class ProfileActivity extends AppCompatActivity {
         logoutBtn = findViewById(R.id.LogOutButton);
 
 
+        //Saving data on Profile Activity by SQL query (Email KEY element)
+
         SharedPreferences preferences = getSharedPreferences("CONTAINER", MODE_PRIVATE);
         String Activ_email = preferences.getString("EMAIL", "email");
 
@@ -46,6 +42,8 @@ public class ProfileActivity extends AppCompatActivity {
         lnameTV.setText(datas.get(1));
         emailTV.setText(datas.get(2));
         birthDateTV.setText(datas.get(3));
+
+        // Allows user to log out
 
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override

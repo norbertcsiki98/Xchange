@@ -1,24 +1,18 @@
 package com.example.xchange.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.renderscript.Sampler;
-import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkError;
 import com.android.volley.NoConnectionError;
 import com.android.volley.ParseError;
@@ -35,19 +29,14 @@ import com.example.xchange.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.nio.BufferUnderflowException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
 
 public class HistoryActivity extends AppCompatActivity {
 
 
     int i = 0;
-    private TextView act_euro_val;
     private Button Generate_rates_button;
     private DatePicker simpleDatePicker;
     private RequestQueue mQueue;
@@ -60,9 +49,9 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history);
         Generate_rates_button = (Button) findViewById(R.id.generate);
         simpleDatePicker = (DatePicker) findViewById(R.id.simpleDatePicker);
-        Bundle extras = getIntent().getExtras();
-        final String value_euro;
         mQueue = Volley.newRequestQueue(getApplicationContext());
+
+        // Sending actual euro values to Notification activity
 
         Generate_rates_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +72,7 @@ public class HistoryActivity extends AppCompatActivity {
 
                     SharedPreferences preferences = getSharedPreferences("CONTAINER", MODE_PRIVATE);
                     String act_val_euro = preferences.getString("ACT_VAL", "val");
-                    String email = preferences.getString("EMAIL","email");
+                    String email = preferences.getString("EMAIL", "email");
                     //sendEmail(act_val_euro,email);
                     Intent Chart_Intent = new Intent(HistoryActivity.this, NotificationsActivity.class);
                     Chart_Intent.putExtra("Value_Set", Vals);
@@ -94,6 +83,8 @@ public class HistoryActivity extends AppCompatActivity {
         });
     }
 
+
+    // Building the request (URL) for a new value
 
     private void Build_Date_json(String date) {
         String url = "https://api.exchangeratesapi.io/" + date;
@@ -140,6 +131,8 @@ public class HistoryActivity extends AppCompatActivity {
 
     }
 
+    // Generate the new date and passing it to Build function
+
     public void extract_euro_values() {
 
         int chosed_year = simpleDatePicker.getYear() + 1;
@@ -159,7 +152,7 @@ public class HistoryActivity extends AppCompatActivity {
         }
     }
 
-    protected void sendEmail(String value , String email) {
+    protected void sendEmail(String value, String email) {
         Log.i("Send email", "NEW VALUE : " + value);
         String[] TO = {""};
         String[] CC = {""};
