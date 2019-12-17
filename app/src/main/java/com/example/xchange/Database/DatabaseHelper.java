@@ -33,10 +33,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE);
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -84,7 +86,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
        return null;
     }
 
-    //checking the email and the password(Login Fragment)
+    //checking the email and the password(Login Activity)
     public boolean checkLogin(String email, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = null;

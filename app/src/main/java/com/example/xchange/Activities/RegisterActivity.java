@@ -32,7 +32,9 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText confpasswordET;
     private Button registerBtn;
     private String birthDate;
+
     DatabaseHelper db;
+
     String fnameS,lnameS,emailS,passwordS,confirmPasswordS,birthDateS;
 
     @Override

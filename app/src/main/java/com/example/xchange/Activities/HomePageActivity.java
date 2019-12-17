@@ -28,7 +28,7 @@ import org.json.JSONObject;
 public class HomePageActivity extends AppCompatActivity {
 
 
-    private TextView  actualEuro;
+    private TextView  actualEuroTV;
     private RequestQueue mQueue;
     Button readButton,exchangeNowBtn;
 
@@ -42,7 +42,7 @@ public class HomePageActivity extends AppCompatActivity {
 
         readButton = findViewById(R.id.readbutton);
         exchangeNowBtn=findViewById(R.id.gotoexhange);
-        actualEuro = findViewById(R.id.actualeuro);
+        actualEuroTV = findViewById(R.id.actualeuro);
         mQueue = Volley.newRequestQueue(this);
         readButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +77,7 @@ public class HomePageActivity extends AppCompatActivity {
                     String email = getIntent().getStringExtra("email");
                     JSONObject object = response.getJSONObject("rates");
                     String value = object.getString("RON");
-                    actualEuro.setText(value);
+                    actualEuroTV.setText(value);
                     SharedPreferences preferences=getSharedPreferences("CONTAINER",MODE_PRIVATE);
                     SharedPreferences.Editor editor=preferences.edit();
                     editor.putString("ACT_VAL",value);
@@ -118,7 +118,7 @@ public class HomePageActivity extends AppCompatActivity {
 
                     JSONObject object = response.getJSONObject("rates");
                     String value = object.getString("RON");
-                    actualEuro.setText(value);
+                    actualEuroTV.setText(value);
 
 
                 } catch (JSONException e) {
